@@ -42,7 +42,7 @@ public class ListaMenuAdapter
         holder.descripcionmenu.setText(p.getDescripcion());
 
         Glide.with(context)
-                .load("http://192.168.43.21/bdmenu/"+p.getRuta())
+                .load("http://localhost/bdmenu/"+p.getRuta())
                 .into(holder.fotoImage);
 
     }

@@ -10,7 +10,8 @@
         android:id="@+id/listamenu"
         android:scrollbars="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:scrollbarStyle="outsideInset"
+        android:layout_height="240dp" />
 
 
 </RelativeLayout>

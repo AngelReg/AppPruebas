@@ -2,7 +2,7 @@ package com.hoshigaki.angel.menutacos;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
@@ -30,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
 
     private ListaMenuAdapter listaMenuAdapter;
 
-    //public static final String Baseurl = "http://192.168.3.6/bdmenu/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,9 +45,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //se selecciona?
-                //Toast.makeText(getApplicationContext(),"Seleccionaste:"+ listaMenuAdapter.getItemViewType());
                 Toast.makeText(getApplicationContext(),"Has Seleccionado "+ recyclerView.getChildAdapterPosition(view),Toast.LENGTH_LONG).show();
-
             }
         });
         //seleccion de datos
@@ -56,11 +53,10 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(listaMenuAdapter);
         recyclerView.setHasFixedSize(true);
 
-        GridLayoutManager layoutManager = new GridLayoutManager(this,1);
-        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));//orientacion de la lista
 
         retrofit=new Retrofit.Builder()
-                .baseUrl("http://192.168.43.21/bdmenu/")
+                .baseUrl("http://localhost/bdmenu/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
